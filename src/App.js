@@ -27,7 +27,14 @@ class App extends React.Component {
     })
   }
 
-  // sortByPopularity
+  sortByPopularity = () => {
+    const popularContacts = this.state.contactList.sort((contactA, contactB) => {
+      return contactA.popularity < contactB.popularity ? 1 : -1;
+    })
+    this.setState({
+      contactList: popularContacts,
+    })
+  }
 
   removeContact = (index) => {
     const newContactList = this.state.contactList.filter((contact, contactIndex) => {
